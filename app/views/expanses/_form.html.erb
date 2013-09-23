@@ -1,0 +1,29 @@
+<%= form_for(@expanse) do |f| %>
+  <% if @expanse.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@expanse.errors.count, "error") %> prohibited this expanse from being saved:</h2>
+
+      <ul>
+      <% @expanse.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :detail %><br>
+    <%= f.text_area :detail %>
+  </div>
+  <div class="field">
+    <%= f.label :amount %><br>
+    <%= f.text_field :amount %>
+  </div>
+  <div class="field">
+    <%= f.label :dated %><br>
+    <%= f.date_select :dated %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

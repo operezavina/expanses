@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Detail:</strong>
+  <%= @expanse.detail %>
+</p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @expanse.amount %>
+</p>
+
+<p>
+  <strong>Dated:</strong>
+  <%= @expanse.dated %>
+</p>
+
+<%= link_to 'Edit', edit_expanse_path(@expanse) %> |
+<%= link_to 'Back', expanses_path %>

@@ -1,0 +1,36 @@
+<%= link_to 'New Expanse', new_expanse_path %>
+<h3>First expense: <%= Expanse.first.detail %> Amount: <%=Expanse.first.amount  %> Date: <%=Expanse.first.dated  %> </h3>
+<h3>Last expense: <%= Expanse.last.detail %> Amount: <%=Expanse.last.amount  %> Date: <%=Expanse.last.dated  %> </h3>
+<h1>Listing expanses</h1>
+<%= will_paginate @expanses %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Detail</th>
+      <th>Amount</th>
+      <th>Dated</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @expanses.each do |expanse| %>
+      <tr>
+        <td><%= expanse.detail %></td>
+        <td><%= expanse.amount %></td>
+        <td><%= expanse.dated.to_s(:long) %></td>
+        <td><%= link_to 'Show', expanse %></td>
+        <td><%= link_to 'Edit', edit_expanse_path(expanse) %></td>
+        <td><%= link_to 'Destroy', expanse, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+
+    <% end %>
+
+  </tbody>
+</table>
+<%= will_paginate @expanses %>
+<br>
+
