@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130923024948) do
+ActiveRecord::Schema.define(version: 20130925012837) do
 
   create_table "expanses", force: true do |t|
     t.text     "detail"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20130923024948) do
     t.date     "dated"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "account"
   end
 
 end

@@ -7,28 +7,37 @@
 <table>
   <thead>
     <tr>
+
       <th>Detail</th>
       <th>Amount</th>
+      <th>Account</th>
       <th>Dated</th>
       <th></th>
       <th></th>
       <th></th>
     </tr>
   </thead>
-
   <tbody>
     <% @expanses.each do |expanse| %>
       <tr>
         <td><%= expanse.detail %></td>
         <td><%= expanse.amount %></td>
+        <td><%= expanse.account %></td>
         <td><%= expanse.dated.to_s(:long) %></td>
         <td><%= link_to 'Show', expanse %></td>
         <td><%= link_to 'Edit', edit_expanse_path(expanse) %></td>
         <td><%= link_to 'Destroy', expanse, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
 
+      <%  @total += expanse.amount %>
     <% end %>
 
+   <tr><td><strong>Total</strong> <%= @total  %><%= %></td></tr>
+    <tr><td><br></td></tr>
+    <tr><td><br></td></tr>
+    <% @totalmo.each do |tm| %>
+    <tr><td><strong>Total</strong> <%= tm.total  %></td></tr>
+    <% end %>
   </tbody>
 </table>
 <%= will_paginate @expanses %>

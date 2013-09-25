@@ -4,8 +4,14 @@ class ExpansesController < ApplicationController
   # GET /expanses
   # GET /expanses.json
   def index
-    WillPaginate.per_page = 3
+
+    WillPaginate.per_page = 5
     @expanses = Expanse.paginate(:page => params[:page],:order => 'dated DESC')
+    @total = 0
+    @totalmo = Expanse.all(
+                             :select => "amount, SUM(amount) total",
+                             :group => "strftime('%m', dated)",
+                             :order => 'dated DESC')
   end
 
   # GET /expanses/1
@@ -71,6 +77,6 @@ class ExpansesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def expanse_params
-      params.require(:expanse).permit(:detail, :amount, :dated)
+      params.require(:expanse).permit(:detail, :amount, :account, :dated)
     end
 end
