@@ -1,5 +1,8 @@
 Expenses::Application.routes.draw do
+  resources :employees
+
   get "expanses/index"
+  get "expanses/buscar"
   resources :expanses
 
 

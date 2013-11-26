@@ -1,4 +1,5 @@
 <%= link_to 'New Expanse', new_expanse_path %>
+<%= link_to 'Find Expanse', expanses_buscar_path %>
 <h3>First expense: <%= Expanse.first.detail %> Amount: <%=Expanse.first.amount  %> Date: <%=Expanse.first.dated  %> </h3>
 <h3>Last expense: <%= Expanse.last.detail %> Amount: <%=Expanse.last.amount  %> Date: <%=Expanse.last.dated  %> </h3>
 <h1>Listing expanses</h1>
@@ -32,11 +33,11 @@
       <%  @total += expanse.amount %>
     <% end %>
 
-   <tr><td><strong>Total</strong> <%= @total  %><%= %></td></tr>
+   <tr><td><strong>Total</strong> <%= @otrototal  %><%=  %></td></tr>
     <tr><td><br></td></tr>
     <tr><td><br></td></tr>
     <% @totalmo.each do |tm| %>
-    <tr><td><strong>Total</strong> <%= tm.total  %></td></tr>
+    <tr><td><strong>Total mes <%= tm.mes  %></strong> <%= tm.total  %></td></tr>
     <% end %>
   </tbody>
 </table>

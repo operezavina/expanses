@@ -8,8 +8,9 @@ class ExpansesController < ApplicationController
     WillPaginate.per_page = 5
     @expanses = Expanse.paginate(:page => params[:page],:order => 'dated DESC')
     @total = 0
+    @otrototal = Expanse.sum('amount')
     @totalmo = Expanse.all(
-                             :select => "amount, SUM(amount) total",
+                             :select => "amount, SUM(amount) total, strftime('%m', dated) mes",
                              :group => "strftime('%m', dated)",
                              :order => 'dated DESC')
   end
@@ -19,7 +20,9 @@ class ExpansesController < ApplicationController
   def show
 
   end
+  def buscar
 
+  end
   # GET /expanses/new
   def new
     @expanse = Expanse.new
@@ -70,6 +73,7 @@ class ExpansesController < ApplicationController
   end
 
   private
+
     # Use callbacks to share common setup or constraints between actions.
     def set_expanse
       @expanse = Expanse.find(params[:id])

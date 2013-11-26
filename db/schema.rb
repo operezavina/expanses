@@ -11,7 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130925012837) do
+ActiveRecord::Schema.define(version: 20130927233512) do
+
+  create_table "employees", force: true do |t|
+    t.string   "fname"
+    t.string   "lastname"
+    t.date     "dateofbirthday"
+    t.string   "department"
+    t.text     "address"
+    t.string   "phone"
+    t.string   "mobile"
+    t.string   "email"
+    t.decimal  "salary"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "expanses", force: true do |t|
     t.text     "detail"
